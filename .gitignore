@@ -1,9 +1,7 @@
-.DS_Store
-READMEhelper.md
-scrap/*.csv
-wrangle/*.json
-analyze/PlayGround.*
-analyze/*.csv
-expose/
-*/*.csv
-*/.ipynb*
+
+###> symfony/framework-bundle ###
+.env
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
