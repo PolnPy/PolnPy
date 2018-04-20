@@ -30,6 +30,28 @@ class HistoryController
     
     /**
      * @SWG\Get(
+     *  summary="Get last pollen record date",
+     *  produces={"application/json"},
+     *  @SWG\Response(
+     *      response=200,
+     *      description="Returns the last pollen record date"
+     *  )
+     * )
+     * @return \App\Response\CrossJsonResponse
+     */
+    public function getLastUpdate()
+    {
+        $record = $this->registry->getRepository(PolenRecord::class)->findLastUpdated();
+        
+        if (!$record) {
+            return new CrossJsonResponse(['error' => 'No data resolved'], 404);
+        }
+        
+        return new CrossJsonResponse($record->getRecordDate(), 200);
+    }
+    
+    /**
+     * @SWG\Get(
      *  summary="Get each pollen concentration in a day",
      *  produces={"application/json"},
      *  @SWG\Response(

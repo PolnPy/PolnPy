@@ -27,6 +27,11 @@ date_overview:
     controller: history_controller:dateOverview
     methods: ['GET', 'OPTIONS']
 
+last_update:
+    path: /max/date
+    controller: history_controller:getLastUpdate
+    methods: ['GET', 'OPTIONS']
+
 predict:
     path: /predict
     controller: prediction_controller:predict

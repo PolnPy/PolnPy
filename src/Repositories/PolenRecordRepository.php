@@ -7,6 +7,19 @@ use App\Document\PolenRecord;
 
 class PolenRecordRepository extends DocumentRepository
 {
+    /**
+     * @return PolenRecord|null
+     */
+    public function findLastUpdated()
+    {
+        return $products = $this->createQueryBuilder(PolenRecord::class)
+            ->sort('recordDate', 'DESC')
+            ->limit(1)
+            ->getQuery()
+            ->execute()
+            ->getSingleResult();
+    }
+    
     public function findInRange($start, $end)
     {
         $qb = $this->createQueryBuilder(PolenRecord::class);
